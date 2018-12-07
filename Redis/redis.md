@@ -12,7 +12,7 @@
 UserParameter=redis_info[*],/etc/zabbix/scripts/redis_check.sh $1 $2 $3 $4
 ```    
 
-配置中的参数均为前端需要传入的项
+配置中的参数均为前端需要传入的参数项
 
 ##3.编辑采集脚本
 
