@@ -15,33 +15,17 @@ UserParameter=redis_info[*],/etc/zabbix/scripts/redis_check.sh $1 $2 $3 $4
 
 导入模板文件
 
-导入成功后可以发现模板`Template redis`
+导入完成后模板名为--Template redis
+###5.前端添加主机
+绑定方才导入的模板
+![img](redis_add_template.png)
+编辑宏参数
+![img](img/redis_add_template.png)
+###6.查看数据
+到monitoring-lastest data查看监控项是否有上报
+###说明：
+1，这个模板redis监控的参数比较多，具体根据自己的实际情况启用redis里边的应用集或者监控项，也可以自己再添加,。
+2，默认aof未开启 以及slave这里都有监控，用不到的就停掉，这个模板。当前模板四个触发器，其中关于aof和主从的关了，只保留了redis存活状态和redis磁盘回写失败与否两个触发器。
 
-##5.前端页面配置
-（1）添加主机
-![image.png](https://upload-images.jianshu.io/upload_images/927710-407241bed915bfc8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-（2）绑定模板
-![image.png](https://upload-images.jianshu.io/upload_images/927710-5dab95995bf63d46.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-（3）编辑宏，写入脚本所需要的变量
-![image.png](https://upload-images.jianshu.io/upload_images/927710-af2eab90537b34cc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-##6数据检验查看
-.添加完成后在`最新数据`中查看方才添加主机的监控项，是否有数据上报
-![image.png](https://upload-images.jianshu.io/upload_images/927710-ced61a91d6fedd3c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-##7.`实现原理`
-以键值为`redis.status[Ping,{$DBPASS},{$DBHOST},{$DBPORT}]`的监控项为例
-从编辑采集脚本的时候可以发现，redis_check.sh脚本需要4个参数来进行数据采集
-```
-[root@s-zabbix /etc/zabbix/scripts]# ./redis_check.sh 
-Usage: ITMEname dbpass dbhost dbport
-```
-而在此监控项中，4个参数分别为```Ping,{$DBPASS},{$DBHOST},{$DBPORT}```,其中ping为监控项名称，其余3个变量为在宏中定义的用于连接redis服务的参数
-##8.遇到的问题
-```
- 21571:20181129:151330.452 error reason for "redis-prod-statics:redis.status[Threads,{$DBPASS},{$DBHOST},{$DBPORT}]" changed: Special characters "\, ', ", `, *, ?, [, ], {, }, ~, $, !, &, ;, (, ), <, >, |, #, @, 0x0a" are not allowed in the parameters.
-```
-传入参数中有特殊字符。解决方法：更新zabbix_agentd.conf，设置UnsafeUserParameters=1
-
-【参考文档】：http://blog.51cto.com/hzcsky/1876697
-
-leeypp@foxmail.com  (如果你有疑问，请联系我)
+###写在最后：
+如果有问题请联系我leeypp@foxmail.com
