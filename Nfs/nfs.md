@@ -16,4 +16,5 @@ Administration--General--Regular expressions--File systems for discovery
 1	»	^(btrfs|ext2|ext3|ext4|jfs|reiser|xfs|ffs|ufs|jfs|jfs2|vxfs|hfs|refs|ntfs|fat32|zfs|nfs|efs|cifs)$	[Result is TRUE]
 
 在后面的正则中添加nfs字段即可！
---leeypp@foxmail.com
+
+如有问题，请你联系我leeypp@foxmail.com
