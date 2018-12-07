@@ -18,9 +18,9 @@ UserParameter=redis_info[*],/etc/zabbix/scripts/redis_check.sh $1 $2 $3 $4
 导入完成后模板名为--Template redis
 ###5.前端添加主机
 绑定方才导入的模板
-![img](redis_add_template.png)
+![](https://github.com/leeypp/zabbix_templates/blob/master/img/redis_add_template.png)
 编辑宏参数
-![img](img/redis_add_template.png)
+![](https://github.com/leeypp/zabbix_templates/blob/master/img/redis_edit_template.png)
 ###6.查看数据
 到monitoring-lastest data查看监控项是否有上报
 ###说明：
