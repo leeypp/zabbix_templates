@@ -26,7 +26,10 @@ UserParameter=redis_info[*],/etc/zabbix/scripts/redis_check.sh $1 $2 $3 $4
 
 绑定方才导入的模板
 
-![](https://github.com/leeypp/zabbix_templates/blob/master/img/redis_add_template.png)
+![image.png](https://github.com/leeypp/zabbix_templates/blob/master/img/redis_add_template.png)
+
+![image.png](https://upload-images.jianshu.io/upload_images/927710-407241bed915bfc8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 
 编辑宏参数
 
